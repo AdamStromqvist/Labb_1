@@ -13,19 +13,19 @@ namespace OOSU2_Laboration1_AAAV.DataLayer
         //UnityOfWork connects a specifik entity with the Generic Repository and the Database (DB).
         //-----------------------------------------------------------------------------------------------------------------------
         public class UnitOfWork
-        {
+        {    // Private field to hold the database context
             private readonly DB db;
-
+            // Constructor to initialize the database context
             public UnitOfWork()
             {
                 db = new DB();
             }
 
-            public Repository<Patient> PatientRepository => new Repository<Patient>(db.Patients);
-            public Repository<DoctorAppointment> DoctorAppointmentRepository => new Repository<DoctorAppointment>(db.DoctorAppointments);
-            public Repository<Diagnosis> DiagnosisRepository => new Repository<Diagnosis>(db.Diagnoses);
-            public Repository<MedicinePrescription> MedicinePrescriptionRepository => new Repository<MedicinePrescription>(db.MedicinePrescriptions);
-
+            public Repository<Patient> PatientRepository => new Repository<Patient>(db.Patients); // Property to get a repository for patient entities
+            public Repository<DoctorAppointment> DoctorAppointmentRepository => new Repository<DoctorAppointment>(db.DoctorAppointments); // Property to get a repository for DoctorAppointments
+            public Repository<Diagnosis> DiagnosisRepository => new Repository<Diagnosis>(db.Diagnoses); // Property to get a repository for Diagnosis
+            public Repository<MedicinePrescription> MedicinePrescriptionRepository => new Repository<MedicinePrescription>(db.MedicinePrescriptions); // Property to get a repository for MedicinePrescriptions
+            // A placeholder properties for various managers in the BusinessLayer
             public BusinessLayer.PatientManager PatientManager
             {
                 get => default;
@@ -57,7 +57,7 @@ namespace OOSU2_Laboration1_AAAV.DataLayer
                 {
                 }
             }
-
+            // Method to save changes to the Database
             public void Save()
             {
                 // No additional logic required if you are already saving to in-memory database (the DB class).
