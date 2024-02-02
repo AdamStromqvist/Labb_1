@@ -13,13 +13,15 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
     //-----------------------------------------------------------------------------------------------------------------------
     public class MedicinePrescriptionManager
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly UnitOfWork unitOfWork; // Here it defines and use UnitOfWork in the MedicinePrescriptionManager class. 
 
+        // A constructor
         public MedicinePrescriptionManager(UnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
 
+        // Association line between program.cs and MedicinePrescriptionManager
         internal PresentationLayer.Program Program
         {
             get => default;
@@ -28,6 +30,7 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
             }
         }
 
+        // Register a medcine prescription
         public void RegisterMedicinePrescription(MedicinePrescription prescription)
         {
             unitOfWork.MedicinePrescriptionRepository.Add(prescription);
