@@ -16,8 +16,9 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
     {
         static void Main(string[] args)
         {
-            UnitOfWork unitOfWork = new UnitOfWork();
+            UnitOfWork unitOfWork = new UnitOfWork(); // defines and uses unitofwork
 
+            // This is the main menu of the program
             while (true)
             {
                 Console.Clear();
@@ -31,7 +32,8 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
 
                 string choice = Console.ReadLine();
                 Console.Clear();
-
+                
+                // Switch for 5 diffrent cases that is in the main menu
                 switch (choice)
                 {
                     case "1": // Patient Manager
@@ -63,6 +65,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
         {
             PatientManager patientManager = new PatientManager(unitOfWork);
 
+            // Menu for the patient manager
             while (true)
             {
                 Console.WriteLine("Patient Manager Menu");
@@ -75,6 +78,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
                 string choice = Console.ReadLine();
                 Console.Clear();
 
+                // Switch for patient manager menu
                 switch (choice)
                 {
                     case "1": // Register Patient
@@ -95,6 +99,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
             }
         }
 
+        // Reads data for method RegisterPatient in businesslayer
         static void RegisterPatient(PatientManager patientManager)
         {
             Console.Write("Enter Patient ID: ");
@@ -125,6 +130,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
             Console.WriteLine("Patient registered successfully!");
         }
 
+        // Reads data for updating existing patients in BusinessLayer
         static void UpdatePatient(PatientManager patientManager)
         {
             Console.Write("Enter Patient ID to Update: ");
@@ -154,6 +160,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
             Console.WriteLine("Patient updated successfully!");
         }
 
+        // Reads data for removing existing patients in BusinessLayer
         static void RemovePatient(PatientManager patientManager)
         {
             Console.Write("Enter Patient ID to Remove: ");
@@ -176,6 +183,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
         {
             DoctorAppointmentManager doctorAppointmentManager = new DoctorAppointmentManager(unitOfWork);
 
+            // Menu for doctor appointment manager
             while (true)
             {
                 Console.WriteLine("Doctor Appointment Manager Menu");
@@ -188,6 +196,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
                 string choice = Console.ReadLine();
                 Console.Clear();
 
+                // Switch for doctor appointment manager with 4 cases. 
                 switch (choice)
                 {
                     case "1": // Register Doctor Appointment
@@ -207,7 +216,8 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
                 }
             }
         }
-
+        
+        // Reads data to able to register a new doctors appointment in BusinessLayer
         static void RegisterDoctorAppointment(DoctorAppointmentManager doctorAppointmentManager)
         {
             Console.WriteLine("Enter Doctor Appointment ID: ");
@@ -242,6 +252,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
             Console.WriteLine("Doctor Appointment registered successfully!");
         }
 
+        // Reads data for updating an existing doctors appointment in BusinessLayer
         static void UpdateDoctorAppointment(DoctorAppointmentManager doctorAppointmentManager)
         {
             Console.Write("Enter Doctor Appointment ID to Update: ");
@@ -276,6 +287,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
      
         }
 
+         // Reads data for removing an existing doctors appointment in BusinessLayer
         static void RemoveDoctorAppointment(DoctorAppointmentManager doctorAppointmentManager)
         {
             Console.Write("Enter Doctor Appointment ID to Remove: ");
@@ -298,6 +310,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
         {
             DiagnosisManager diagnosisManager = new DiagnosisManager(unitOfWork);
 
+            // Menu for diagnosis manager 
             while (true)
             {
                 Console.WriteLine("Diagnosis Manager Menu");
@@ -308,6 +321,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
                 string choice = Console.ReadLine();
                 Console.Clear();
 
+                // Switch for diagnosis menu 
                 switch (choice)
                 {
                     case "1": // Register Diagnosis
@@ -322,6 +336,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
             }
         }
 
+        //  // Reads data for register a new diagnosis in BusinessLayer
         static void RegisterDiagnosis(DiagnosisManager diagnosisManager)
         {
             Console.Write("Enter Patient ID: ");
@@ -355,6 +370,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
         {
             MedicinePrescriptionManager medicinePrescriptionManager = new MedicinePrescriptionManager(unitOfWork);
 
+            // Menu for medicine prescrption manager
             while (true)
             {
                 Console.WriteLine("Medicine Prescription Manager Menu");
@@ -365,6 +381,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
                 string choice = Console.ReadLine();
                 Console.Clear();
 
+                // Switch for medicine prescription menu
                 switch (choice)
                 {
                     case "1": // Register Medicine Prescription
@@ -379,6 +396,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
             }
         }
 
+         // Reads data to register a new medicine prescription in BusinessLayer
         static void RegisterMedicinePrescription(MedicinePrescriptionManager medicinePrescriptionManager)
         {
             Console.Write("Enter Patient ID: ");
