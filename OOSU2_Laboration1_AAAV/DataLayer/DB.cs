@@ -16,6 +16,7 @@ namespace OOSU2_Laboration1_AAAV.DataLayer
         public List<DoctorAppointment> DoctorAppointments { get; set; } // Represents list for Doctorappointments
         public List<Diagnosis> Diagnoses { get; set; } // Represents a list for Diagnoses
         public List<MedicinePrescription> MedicinePrescriptions { get; set; } // Represents a list for MedicinePrescriptions
+        
         // Missing references but is an association line between UnitofWork and the database
         public DataLayer.UnitOfWork UnitOfWork
         {
@@ -24,6 +25,7 @@ namespace OOSU2_Laboration1_AAAV.DataLayer
             {
             }
         }
+        
         // Constructor for Database
         public DB()
         {
