@@ -13,13 +13,15 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
     //-----------------------------------------------------------------------------------------------------------------------
     public class PatientManager
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly UnitOfWork unitOfWork; // Here it defines and use UnitOfWork in the PatientManager class. 
 
+        // A constructor
         public PatientManager(UnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
-
+        
+         // Association line between PatientManager and program.cs
         internal PresentationLayer.Program Program
         {
             get => default;
@@ -28,12 +30,14 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
             }
         }
 
+        // Register a new patient
         public void RegisterPatient(Patient patient)
         {
             unitOfWork.PatientRepository.Add(patient);
             unitOfWork.Save();
         }
-
+        
+        //  A method for updating a existing patient using patientID
         public void UpdatePatient(Patient updatedPatient, int patientID)
         {
             var existingPatient = unitOfWork.PatientRepository.FirstOrDefault(p => p.PatientID == patientID);
@@ -49,6 +53,7 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
             }
         }
 
+        // Method for removing an existing patient. 
         public bool RemovePatient(int patientID)
         {
             var patientToRemove = unitOfWork.PatientRepository.FirstOrDefault(p => p.PatientID == patientID);
