@@ -13,21 +13,24 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
     //-----------------------------------------------------------------------------------------------------------------------
     public class DiagnosisManager
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly UnitOfWork unitOfWork; // Here it defines and use UnitOfWork in the DiagnosisManager class. 
 
+        // The line below is a constructor
         public DiagnosisManager(UnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
-
-        internal PresentationLayer.Program Program
+        
+        // Association line between DiagnosisManager and program.cs
+        internal PresentationLayer.Program Program 
         {
             get => default;
             set
             {
             }
         }
-
+        
+        // method for RegisterDiagnosis
         public void RegisterDiagnosis(Diagnosis diagnosis)
         {
             unitOfWork.DiagnosisRepository.Add(diagnosis);
