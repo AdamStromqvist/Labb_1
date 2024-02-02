@@ -13,13 +13,15 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
     //-----------------------------------------------------------------------------------------------------------------------
     public class DoctorAppointmentManager
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly UnitOfWork unitOfWork; // Here it defines and use UnitOfWork in the DoctorAppointmentManager class. 
 
+        // A constructor
         public DoctorAppointmentManager(UnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }
 
+        // An association line between DoctorAppointmentManager and program.cs
         internal PresentationLayer.Program Program
         {
             get => default;
@@ -27,13 +29,15 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
             {
             }
         }
-
+        
+        // Method for booking a doctors appointment
         public void BookDoctorAppointment(DoctorAppointment appointment)
         {
             unitOfWork.DoctorAppointmentRepository.Add(appointment);
             unitOfWork.Save();
         }
-
+        
+        // Updating existing doctors appointment and its attributes
         public void UpdateDoctorAppointment(DoctorAppointment updatedDoctorAppointment, int doctorAppointmentID)
         {
             var existingDoctorAppointment = unitOfWork.DoctorAppointmentRepository.FirstOrDefault(p => p.DoctorAppointmentID == doctorAppointmentID);
@@ -48,12 +52,14 @@ namespace OOSU2_Laboration1_AAAV.BusinessLayer
                 unitOfWork.Save();
             }
         }
-
+        
+        // This method is not in use right now but we will use it for the labration2
         public DoctorAppointment GetDoctorAppointmentByDoctorAppointmentID(int doctorAppointmentID)
         {
             return unitOfWork.DoctorAppointmentRepository.FirstOrDefault(appointment => appointment.DoctorAppointmentID == doctorAppointmentID);
         }
-
+        
+        // This method removes an doctors appointment.
         public bool RemoveDoctorAppointment(int doctorAppointmentID)
         {
             var appointmentToRemove = unitOfWork.DoctorAppointmentRepository.FirstOrDefault(appointment => appointment.DoctorAppointmentID == doctorAppointmentID);
