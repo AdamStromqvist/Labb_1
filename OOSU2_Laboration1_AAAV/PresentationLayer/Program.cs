@@ -12,6 +12,7 @@ namespace OOSU2_Laboration1_AAAV.PresentationLayer
     //-------------------------------------------------
     //User interface
     //Hello from git
+    //test igen
     //-------------------------------------------------
     class Program
     {
