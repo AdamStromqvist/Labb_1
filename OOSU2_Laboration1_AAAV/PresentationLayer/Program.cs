@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace OOSU2_Laboration1_AAAV.PresentationLayer
 {
-    //Test Github
     //-------------------------------------------------
     //User interface
     //-------------------------------------------------
