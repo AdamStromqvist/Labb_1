@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -57,10 +58,40 @@ namespace OOSU2_Laboration1_AAAV.DataLayer
                 {
                 }
             }
+
+            // Lägg till en anslutningssträng för din SQL-databas
+            private string connectionString = "Server=sqlutb2-db.hb.se, 56077;Database=myDataBase;User Id=oosu2408;Password=UKB987;";
+            
             // Method to save changes to the Database
             public void Save()
             {
                 // No additional logic required if you are already saving to in-memory database (the DB class).
+                // Skapa en anslutning till din SQL-databas
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        // Öppna anslutningen
+                        connection.Open();
+
+                        // Skapa en SQL-fråga för att infoga eller uppdatera data i din databas
+                        string query = "INSERT INTO YourTableName (Column1, Column2, ...) VALUES (@Value1, @Value2, ...)";
+                        SqlCommand command = new SqlCommand(query, connection);
+
+                        // Lägg till parametrar för att undvika SQL-injektioner och för att göra din kod säkrare
+                        command.Parameters.AddWithValue("@Value1", value1);
+                        command.Parameters.AddWithValue("@Value2", value2);
+                        // Lägg till fler parametrar för andra kolumnvärden om det behövs
+
+                        // Kör SQL-frågan
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Hantera fel
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+                }
             }
         }
     }
