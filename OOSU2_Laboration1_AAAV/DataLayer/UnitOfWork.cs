@@ -1,6 +1,7 @@
 ﻿using OOSU2_Laboration1_AAAV.EntetiesLayer;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -61,7 +62,9 @@ namespace OOSU2_Laboration1_AAAV.DataLayer
 
             // Lägg till en anslutningssträng för din SQL-databas
             private string connectionString = "Server=sqlutb2-db.hb.se, 56077;Database=myDataBase;User Id=oosu2408;Password=UKB987;";
-            
+            private object value1;
+            private object value2;
+
             // Method to save changes to the Database
             public void Save()
             {
